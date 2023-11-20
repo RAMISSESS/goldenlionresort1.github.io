@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Booking Form</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<style>
+			body{
+				font-family: 'Open Sans', sans-serif;
+				background-image: url('b.jpg');
+				background-position-x: 60%;
+				background-position-y: 10%;
+			}
+			.form-wrapper{
+				width: 100%; 
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			form{
+				height: 60%;
+				width:  30%;
+				background: gray;
+				border-radius: 10px;
+				margin-bottom: 0px;
+			}
+			input{
+				width: 100%;
+			}
+			.form-header{
+				height: 10%;
+				width:  90%;
+				border-bottom: 1px solid #848484;
+				padding: 10px;
+			}
+			.form-header h2, h5{
+				margin: 0;
+				text-align: center;
+			}
+			.form-body{
+				height: 10%;
+				width:  90%;
+				padding: 10px;
+				padding-top: 20px;
+			}
+			#MaSta, #RD, #email, #phone, #City, #State, #ZIP, #Country{
+				width: 225px;
+			}
+			.form-footer .registration-button {
+				margin: 5%;
+			    background: #907A22;
+			    color: white;
+				width: 60%;
+			    padding: 10px;
+			    text-align: center;
+			    font-weight: bold;
+			    border-radius: 30px;
+			    text-decoration: none;
+			}
+			.form-footer .registration-button:hover{
+				color:  white;
+				background: #333;
+			}
+			.form-footer{
+				margin-left: 1%;
+				position: absolute;
+				bottom: 25%;
+				display: flex;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="form-wrapper">
+			<form>
+				<div class="form-header">
+					<h2>Booking Form</h2>
+					<h5>Please fill in the information requested below in order to complete <br> the Booking for your reservation. Thank you!</h5>
+				</div>
+				<div class="form-body">
+					<p style="margin: 0px; margin-bottom: 2px; font-weight: bold;">Employee name<span style="color:red">*</span></p>
+						<input type="text" placeholder="Last Name" size="27px"> <input type="text" placeholder="First Name" size="27px"> 
+					<p style="font-weight: bold;">Date of Reservation<span style="color:red">*</span></p>
+					<input type="date" id="RD" name="RD" min="CurrentDate">
+					<script type="text/javascript">
+						$(function(){
+							var dtToday = new Date();
+						 
+							var month = dtToday.getMonth() + 1;
+							var day = dtToday.getDate();
+							var year = dtToday.getFullYear();
+							if(month < 10)
+								month = '0' + month.toString();
+							if(day < 10)
+							 day = '0' + day.toString();
+							var maxDate = year + '-' + month + '-' + day;
+							$('#RD').attr('min', maxDate);
+						});
+						</script>
+					<p style="margin-bottom: 2px; font-weight: bold;">Email<span style="color:red">*</span> <span style="margin-left: 180px; font-weight: bold;">Phone</span></p>
+					<input type="email" id="email" placeholder="my_Email123@gmail.com"> <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+					<p style="margin: 0px; margin-top: 20px; font-weight: bold;">In case you suspect that you left an item in our property. <br>Please enter:</p>
+					<p style="margin-bottom: 2px; font-weight: bold;">Home Address</p>
+					<input type="text" placeholder="Street Address" size="60px">
+					<br><input type="text" id="City" name="City" placeholder="City">
+					<select name="State" id="State">
+						<option value="Blank">*Please Select*</option>
+						<option value="OverThere">Duon</option>
+						<option value="Here">Dito</option>
+						<option value="There">Dyaan</option>
+						<option value="????">What is State?</option>
+					</select>
+					<br><input type="text" id="ZIP" name="ZIP" pattern="[0-9]*" placeholder="ZIP Code">
+					<select name="State" id="State">
+						<option value="Blank">*Please Select*</option>
+						<option value="OverThere">Duon</option>
+						<option value="Here">Dito</option>
+						<option value="There">Dyaan</option>
+						<option value="????">What is State?</option>
+					</select>
+				</div>
+				<div class="form-footer">
+					<a class="registration-button" href="#">REGISTER RESERVATION</a>
+				</div>
+				<div class="form-footer">
+					<a class="registration-button" href="index.html">RETURN</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
